@@ -1,0 +1,21 @@
+#pragma once
+
+#include <iostream>
+
+#include "GL/glew.h"
+
+#include "VertexArray.h"
+#include "ArObject.h"
+#include "Model.h"
+#include "ErrorDirectives.h"
+
+class Renderer {
+public:
+	Renderer();
+	~Renderer();
+
+	void draw(const VertexArray* va, const IndexBuffer* ib) const;
+	void draw(ArObject* arObject);
+	void clear() const;
+};
+
