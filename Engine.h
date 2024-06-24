@@ -14,7 +14,6 @@
 #include "Renderer.h"
 #include "VertexArray.h"
 #include "Shader.h"
-#include "texture.h"
 #include "Camera.h"
 #include "ArObject.h"
 #include "Arrow.h"
