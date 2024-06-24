@@ -1,11 +1,11 @@
 #pragma once
 
-#include <x86intrin.h>
 #include <iostream>
 
+#define GLEW_STATIC
 #include "GL/glew.h"
 
-#define ASSERT(x) if (!(x)) /*__debugbreak()*/;
+#define ASSERT(x) if (!(x)) __debugbreak();
 #define GLCall(x) glClearError();\
 	x;\
 	ASSERT(glLogError(#x, __FILE__, __LINE__))
@@ -15,4 +15,3 @@ bool glLogError(const char* function, const char* file, int line);
 
 class ErrorDirectives {
 };
-

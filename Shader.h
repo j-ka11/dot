@@ -6,6 +6,10 @@
 #include <sstream>
 #include <unordered_map>
 
+#include <malloc.h>
+
+#define GLEW_STATIC
+#include <GL/glew.h>
 #include <glm/glm.hpp>
 
 #include "ErrorDirectives.h"

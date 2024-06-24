@@ -6,6 +6,7 @@
 #include <iostream>
 #include <vector>
 
+#define GLEW_STATIC
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -28,7 +29,7 @@ public:
 
 	void bind();
 	void unBind();
-	
+
 	void draw(Shader meshShader);
 	inline vector<Vertex> getVertices() { return vertices; }
 	inline VertexArray* getVA() { return va; }
@@ -45,4 +46,3 @@ private:
 
 	void setupMesh();
 };
-

@@ -2,6 +2,7 @@
 
 #include <iostream>
 
+#define GLEW_STATIC
 #include "GL/glew.h"
 
 #include "VertexArray.h"
@@ -18,4 +19,3 @@ public:
 	void draw(ArObject* arObject);
 	void clear() const;
 };
-

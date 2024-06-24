@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 
-#include "vendor/stb_image/stb_image.h"
+#include "stb_image.h"
 
 #include "ErrorDirectives.h"
 

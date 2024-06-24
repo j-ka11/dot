@@ -106,7 +106,7 @@ void Engine::run() {
 
 		int screenWidth, screenHeight;
 		glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
-			
+
 		Renderer arRenderer;
 
 		string modelShaderFile = "res/shaders/modelLoading.shader";
@@ -118,7 +118,7 @@ void Engine::run() {
 		string lampShaderFile = "res/shaders/lamp.shader";
 		Shader lampShader(lampShaderFile);
 		lampShader.unBind();
-			
+
 		glm::mat4 projection = glm::perspective(camera.getZoom(), 1600.0f / 1200.0f, 0.1f, 100.f);
 
 		while (!glfwWindowShouldClose(window)) {
@@ -148,7 +148,7 @@ void Engine::run() {
 
 			glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -3.0f));
 			model = glm::scale(model, glm::vec3(0.2, 0.2, 0.2));
-			
+
 			modelShader.setUniformMat4("projection", projection);
 			modelShader.setUniformMat4("view", view);
 			modelShader.setUniformMat4("model", model);
@@ -178,10 +178,10 @@ void Engine::run() {
 			//if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 				//glfwSetWindowShouldClose(window, GL_TRUE);
 		}
-	delete lampIB;
-	delete lampVB;
-	delete lampVA;
-	delete nano;
+		delete lampIB;
+		delete lampVB;
+		delete lampVA;
+		delete nano;
 	}
 
 	glfwTerminate();

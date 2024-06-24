@@ -36,7 +36,7 @@ void Camera::processMouseMovement(float xOffset, float yOffset, bool constrainPi
 }
 
 void Camera::processMouseScroll(float yOffset) {
-	
+
 }
 
 void Camera::updateCameraVectors() {

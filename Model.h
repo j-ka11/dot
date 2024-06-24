@@ -7,6 +7,7 @@
 #include <map>
 #include <vector>
 
+#define GLEW_STATIC
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -14,7 +15,7 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-#include "vendor/stb_image/stb_image.h"
+#include "stb_image.h"
 #include "Mesh.h"
 
 using namespace std;
@@ -28,7 +29,7 @@ public:
 
 	void bind();
 	void unBind();
-	
+
 	void loadModel(string filepath);
 	void draw(Shader modelShader);
 

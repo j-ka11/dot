@@ -8,4 +8,3 @@ public:
 	glm::vec3 normals;
 	glm::vec2 texCoords;
 };
-
