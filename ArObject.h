@@ -1,11 +1,16 @@
 #pragma once
 
 #include <string>
+#include <iostream>
+#include <vector>
 
 #define GLEW_STATIC
 #include "GL/glew.h"
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
 
-#include "Model.h"
+#include "Mesh.h"
 
 using namespace std;
 class ArObject {
@@ -13,10 +18,19 @@ public:
 	ArObject();
 	~ArObject();
 
-	inline Model getModel() { return objectModel; }
+	void bind();
+	void unBind();
+
+	inline vector<Mesh> getMeshes() { return meshes; }
 protected:
 	string filepath;
-	Model objectModel;
+
+	void loadAsset();
 private:
-	virtual void loadModel();
+	string directory;
+	vector<Mesh> meshes;
+	vector<AssimpTexture> texturesLoaded;
+
+	void processNode(aiNode* node, const aiScene* scene);
+	Mesh processMesh(aiMesh* mesh, const aiScene* scene);
 };

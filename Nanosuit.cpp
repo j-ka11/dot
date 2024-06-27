@@ -2,13 +2,7 @@
 
 Nanosuit::Nanosuit() {
 	filepath = "res/models/nanosuit.fbx";
-	loadModel();
+	loadAsset();
 }
 
-Nanosuit::~Nanosuit() {
-
-}
-
-void Nanosuit::loadModel() {
-	objectModel.loadModel(filepath);
-}
+Nanosuit::~Nanosuit() {}

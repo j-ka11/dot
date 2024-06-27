@@ -1,7 +1,5 @@
 #pragma once
 
-#include <string>
-
 #include "GL/glew.h"
 
 #include "ArObject.h"
@@ -11,6 +9,4 @@ class Nanosuit : public ArObject {
 public:
 	Nanosuit();
 	~Nanosuit();
-private:
-	void loadModel() override;
 };

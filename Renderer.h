@@ -7,7 +7,6 @@
 
 #include "VertexArray.h"
 #include "ArObject.h"
-#include "Model.h"
 #include "ErrorDirectives.h"
 
 class Renderer {

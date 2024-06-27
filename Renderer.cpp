@@ -15,9 +15,8 @@ void Renderer::draw(const VertexArray* va, const IndexBuffer* ib) const {
 }
 
 void Renderer::draw(ArObject* arObject) {
-	Model model = arObject->getModel();
-	for (int i = 0; i < model.getMeshes().size(); i++) {
-		Mesh mesh = model.getMeshes().at(i);
+	for (int i = 0; i < arObject->getMeshes().size(); i++) {
+		Mesh mesh = arObject->getMeshes().at(i);
 		draw(mesh.getVA(), mesh.getIB());
 	}
 }

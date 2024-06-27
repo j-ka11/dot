@@ -2,13 +2,7 @@
 
 Arrow::Arrow() {
 	filepath = "res/models/arrow.obj";
-	loadModel();
+	loadAsset();
 }
 
-Arrow::~Arrow() {
-
-}
-
-void Arrow::loadModel() {
-	objectModel.loadModel(filepath);
-}
+Arrow::~Arrow() {}
