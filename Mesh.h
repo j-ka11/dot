@@ -12,9 +12,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <assimp/types.h>
 
+#include "IndexBuffer.h"
 #include "Shader.h"
-#include "VertexArray.h"
-#include "Vertex.h"
+#include "VertexBuffer.h"
 
 using namespace std;
 struct AssimpTexture {
@@ -32,10 +32,10 @@ public:
 
 	void draw(Shader meshShader);
 	inline vector<Vertex> getVertices() { return vertices; }
-	inline VertexArray* getVA() { return va; }
 	inline IndexBuffer* getIB() { return ib; }
 private:
-	VertexArray* va;
+	unsigned int m_VertexArrayID;
+
 	VertexBuffer* vb;
 	IndexBuffer* ib;
 	VertexBufferLayout layout;
