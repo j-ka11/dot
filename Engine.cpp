@@ -13,17 +13,13 @@ float lastFrame = 0.0f;
 float deltaTime = 0.0f;
 
 using namespace std;
-Engine::Engine()
-{
+Engine::Engine() {
 	lightPos.x = 1.2f;
 	lightPos.y = 1.5f;
 	lightPos.z = 0.0f;
 }
 
-
-Engine::~Engine()
-{
-}
+Engine::~Engine() {}
 
 void Engine::run() {
 	glfwInit();
@@ -107,8 +103,6 @@ void Engine::run() {
 		int screenWidth, screenHeight;
 		glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
 
-		Renderer arRenderer;
-
 		string modelShaderFile = "res/shaders/modelLoading.shader";
 		Shader modelShader(modelShaderFile);
 		modelShader.unBind();
@@ -124,7 +118,7 @@ void Engine::run() {
 		while (!glfwWindowShouldClose(window)) {
 			//render here
 			GLCall(glClearColor(0.1f, 0.1f, 0.1f, 1.0f));
-			arRenderer.clear();
+			GLCall(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT));
 
 			float currentFrame = glfwGetTime();
 			deltaTime = currentFrame - lastFrame;
@@ -153,7 +147,7 @@ void Engine::run() {
 			modelShader.setUniformMat4("view", view);
 			modelShader.setUniformMat4("model", model);
 
-			arRenderer.draw(nano);
+			nano->draw();
 
 			modelShader.unBind();
 
@@ -167,7 +161,8 @@ void Engine::run() {
 			lampShader.setUniformMat4("view", view);
 			lampShader.setUniformMat4("model", model);
 
-			arRenderer.draw(lampVA, lampIB);
+			lampVA->bind();
+			GLCall(glDrawElements(GL_TRIANGLES, lampIB->getCount(), GL_UNSIGNED_INT, nullptr));
 
 			lampShader.unBind();
 

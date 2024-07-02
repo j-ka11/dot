@@ -16,6 +16,14 @@ void ArObject::unBind() {
 	}
 }
 
+void ArObject::draw() {
+	for (int i = 0; i < meshes.size(); i++) {
+		Mesh mesh = meshes.at(i);
+		mesh.getVA()->bind();
+		GLCall(glDrawElements(GL_TRIANGLES, mesh.getIB()->getCount(), GL_UNSIGNED_INT, nullptr));
+	}
+}
+
 void ArObject::loadAsset() {
 	Assimp::Importer importer;
 	const aiScene* scene = importer.ReadFile(filepath, aiProcess_Triangulate | aiProcess_FlipUVs);

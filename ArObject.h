@@ -20,6 +20,7 @@ public:
 
 	void bind();
 	void unBind();
+	void draw();
 
 	inline vector<Mesh> getMeshes() { return meshes; }
 protected:
