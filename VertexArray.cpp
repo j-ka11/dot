@@ -34,12 +34,19 @@ void VertexArray::unBind() const {
 	GLCall(glBindVertexArray(0));
 }
 
-void VertexArray::addVertexBuffer(VertexBuffer* vBuffer) {
+void VertexArray::addIndexBuffer(IndexBuffer* indexBuffer) {
 	GLCall(glBindVertexArray(m_RendererID));
-	vBuffer->bind();
+	indexBuffer->bind();
+
+	this->indexBuffer = indexBuffer;
+}
+
+void VertexArray::addVertexBuffer(VertexBuffer* vertexBuffer) {
+	GLCall(glBindVertexArray(m_RendererID));
+	vertexBuffer->bind();
 
 	unsigned int index = 0;
-	const auto& layout = vBuffer->getLayout();
+	const auto& layout = vertexBuffer->getLayout();
 	for (const auto& element : layout.getElements()) {
 		glEnableVertexAttribArray(index);
 		glVertexAttribPointer(index,
@@ -51,13 +58,5 @@ void VertexArray::addVertexBuffer(VertexBuffer* vBuffer) {
 		index++;
 	}
 
-	m_VertexBuffers.push_back(vBuffer);
-
-}
-
-void VertexArray::addIndexBuffer(IndexBuffer* iBuffer) {
-	GLCall(glBindVertexArray(m_RendererID));
-	iBuffer->bind();
-
-	m_IndexBuffer = iBuffer;
+	vertexBuffers.push_back(vertexBuffer);
 }

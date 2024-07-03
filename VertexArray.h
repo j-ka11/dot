@@ -17,11 +17,12 @@ public:
 	void bind() const;
 	void unBind() const;
 
-	void addVertexBuffer(VertexBuffer* vBuffer);
-	void addIndexBuffer(IndexBuffer* iBuffer);
-
+	// TODO(j-ka11): maybe delete.
+	void addIndexBuffer(IndexBuffer* indexBuffer);
+	void addVertexBuffer(VertexBuffer* vertexBuffer);
 private:
 	unsigned int m_RendererID;
-	vector<VertexBuffer*> m_VertexBuffers;
-	IndexBuffer* m_IndexBuffer;
+
+	Buffer* indexBuffer;
+	vector<Buffer*> vertexBuffers;
 };

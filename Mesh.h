@@ -32,12 +32,12 @@ public:
 
 	void draw(Shader meshShader);
 	inline vector<Vertex> getVertices() { return vertices; }
-	inline IndexBuffer* getIB() { return ib; }
+	inline IndexBuffer* getIndexBuffer() { return indexBuffer; }
 private:
 	unsigned int m_VertexArrayID;
 
-	VertexBuffer* vb;
-	IndexBuffer* ib;
+	IndexBuffer* indexBuffer;
+	VertexBuffer* vertexBuffer;
 	VertexBufferLayout layout;
 
 	vector<Vertex> vertices;

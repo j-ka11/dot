@@ -41,13 +41,13 @@ void Mesh::setupMesh() {
 	};
 
 	// Vertex Buffer
-	vb = new VertexBuffer(vertices);
-	vb->setLayout(layout);
-	vb->bind();
+	vertexBuffer = new VertexBuffer(vertices);
+	vertexBuffer->setLayout(layout);
+	vertexBuffer->bind();
 
 	// Index Buffer
-	ib = new IndexBuffer(indices);
-	ib->bind();
+	indexBuffer = new IndexBuffer(indices);
+	indexBuffer->bind();
 
 	unsigned int index = 0;
 	for (const auto& element : layout.getElements()) {

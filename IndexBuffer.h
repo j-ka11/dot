@@ -5,21 +5,18 @@
 #define GLEW_STATIC
 #include "GL/glew.h"
 
-#include "ErrorDirectives.h"
+#include "Buffer.h"
 
-using namespace std;
-class IndexBuffer {
-public:
-	IndexBuffer() {}
-	IndexBuffer(unsigned int* indices, unsigned int count);
-	IndexBuffer(vector<unsigned int> indices);
-	~IndexBuffer();
+class IndexBuffer : public Buffer {
+	public:
+		IndexBuffer(unsigned int* indices, unsigned int count);
+		IndexBuffer(std::vector<unsigned int> indices);
+		~IndexBuffer();
 
-	void bind() const;
-	void unBind() const;
+		void bind() const;
+		void unBind() const;
 
-	inline unsigned int getCount() const { return m_Count; }
-private:
-	unsigned int m_RendererID;
-	unsigned int m_Count;
+		inline unsigned int getCount() const { return m_Count; }
+	private:
+		unsigned int m_Count;
 };

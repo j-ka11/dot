@@ -3,25 +3,21 @@
 IndexBuffer::IndexBuffer(unsigned int* indices, unsigned int count) {
 	m_Count = count;
 
-	GLCall(glGenBuffers(1, &m_RendererID));
-	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID));
-	GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, count * sizeof(unsigned int), indices, GL_STATIC_DRAW));
+	bind();
+	GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_Count * sizeof(unsigned int), indices, GL_STATIC_DRAW));
 }
 
-IndexBuffer::IndexBuffer(vector<unsigned int> indices) {
+IndexBuffer::IndexBuffer(std::vector<unsigned int> indices) {
 	m_Count = indices.size();
 
-	GLCall(glGenBuffers(1, &m_RendererID));
-	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID));
-	GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int)/* volume (size in bytes) */, &indices[0], GL_STATIC_DRAW));
+	bind();
+	GLCall(glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_Count * sizeof(unsigned int)/* volume (size in bytes) */, &indices[0], GL_STATIC_DRAW));
 }
 
-IndexBuffer::~IndexBuffer() {
-	GLCall(glDeleteBuffers(1, &m_RendererID));
-}
+IndexBuffer::~IndexBuffer() {}
 
 void IndexBuffer::bind() const {
-	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID));
+	GLCall(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_BufferID));
 }
 
 void IndexBuffer::unBind() const {

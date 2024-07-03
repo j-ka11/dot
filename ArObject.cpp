@@ -20,7 +20,7 @@ void ArObject::draw() {
 	for (int i = 0; i < meshes.size(); i++) {
 		Mesh mesh = meshes.at(i);
 		mesh.bind();
-		GLCall(glDrawElements(GL_TRIANGLES, mesh.getIB()->getCount(), GL_UNSIGNED_INT, nullptr));
+		GLCall(glDrawElements(GL_TRIANGLES, mesh.getIndexBuffer()->getCount(), GL_UNSIGNED_INT, nullptr));
 	}
 }
 
