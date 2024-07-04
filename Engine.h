@@ -11,24 +11,22 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "VertexArray.h"
+#include "Lamp.h"
 #include "Shader.h"
 #include "Camera.h"
 #include "ArObject.h"
 #include "Arrow.h"
 #include "Nanosuit.h"
 
-using namespace std;
-class Engine
-{
-public:
-	Engine();
-	~Engine();
-	void run();
-private:
-	glm::vec3 lightPos;
+class Engine {
+	public:
+		Engine();
+		~Engine();
 
-	GLFWwindow* window; // (In the accompanying source code, this variable is global for simplicity)
-	void openWindow();
-	void doMovement();
+		void run();
+	private:
+		GLFWwindow* window; // (In the accompanying source code, this variable is global for simplicity)
+
+		void openWindow();
+		void doMovement();
 };

@@ -13,11 +13,7 @@ float lastFrame = 0.0f;
 float deltaTime = 0.0f;
 
 using namespace std;
-Engine::Engine() {
-	lightPos.x = 1.2f;
-	lightPos.y = 1.5f;
-	lightPos.z = 0.0f;
-}
+Engine::Engine() {}
 
 Engine::~Engine() {}
 
@@ -31,74 +27,9 @@ void Engine::run() {
 
 	GLCall(glEnable(GL_DEPTH_TEST));
 
-	float vertices[] = {
-	  -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-		0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-		0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-
-		-0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-		0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-		0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-		0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-
-		-0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-		-0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-		-0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-
-		0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-		0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-		0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-		0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-		0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-		0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-
-		-0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-		0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-		0.5f, -0.5f,  0.5f,  0.0f, 1.0f,
-		0.5f, -0.5f,  0.5f,  0.0f, 1.0f,
-		-0.5f, -0.5f,  0.5f,  1.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-
-		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-		0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-		0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-		0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-		-0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f
-	};
-
-	unsigned int indices[] = {
-		0, 1, 2, 3, 4, 5,
-		6, 7, 8, 9, 10, 11,
-		12, 13, 14, 15, 16,
-		17, 18, 19, 20, 21,
-		22, 23, 24, 25, 26,
-		27, 28, 29, 30, 31
-	};
-
 	//creating an extra scope to handle openGL not terminating
 	{
-		VertexArray* lampVA = new VertexArray();
-		VertexBuffer* lampVB = new VertexBuffer(vertices, sizeof(vertices));
-		IndexBuffer* lampIB = new IndexBuffer(indices, 32);
-
-		VertexBufferLayout layout = {
-			{ShaderDataType::FLOAT3, "position"},
-			{ShaderDataType::FLOAT2, "texture"}
-		};
-
-		lampVB->setLayout(layout);
-		lampVA->addVertexBuffer(lampVB);
-		lampVA->addIndexBuffer(lampIB);
-		lampVA->unBind();
+		Lamp* lamp = new Lamp();
 
 		int screenWidth, screenHeight;
 		glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
@@ -114,6 +45,8 @@ void Engine::run() {
 		lampShader.unBind();
 
 		glm::mat4 projection = glm::perspective(camera.getZoom(), 1600.0f / 1200.0f, 0.1f, 100.f);
+
+		glm::vec3 lightPosition = lamp->getLightPosition();
 
 		while (!glfwWindowShouldClose(window)) {
 			//render here
@@ -137,7 +70,7 @@ void Engine::run() {
 
 			modelShader.setUniform3f("objectColor", 0.25, 0.745f, 0.829f);
 			modelShader.setUniform3f("lightColor", 1.0f, 0.5f, 1.0f);
-			modelShader.setUniform3f("lightPos", lightPos.x, lightPos.y, lightPos.z);
+			modelShader.setUniform3f("lightPos", lightPosition.x, lightPosition.y, lightPosition.z);
 			modelShader.setUniform3f("viewPos", camera.getPosition().x, camera.getPosition().y, camera.getPosition().z);
 
 			glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -3.0f));
@@ -154,15 +87,15 @@ void Engine::run() {
 			//render light
 			lampShader.bind();
 
-			model = glm::translate(glm::mat4(1.0f), lightPos);
+			model = glm::translate(glm::mat4(1.0f), lightPosition);
 			model = glm::scale(model, glm::vec3(0.2f));
 
 			lampShader.setUniformMat4("projection", projection);
 			lampShader.setUniformMat4("view", view);
 			lampShader.setUniformMat4("model", model);
 
-			lampVA->bind();
-			GLCall(glDrawElements(GL_TRIANGLES, lampIB->getCount(), GL_UNSIGNED_INT, nullptr));
+			lamp->bind();
+			lamp->draw();
 
 			lampShader.unBind();
 
@@ -173,9 +106,7 @@ void Engine::run() {
 			//if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
 				//glfwSetWindowShouldClose(window, GL_TRUE);
 		}
-		delete lampIB;
-		delete lampVB;
-		delete lampVA;
+		delete lamp;
 		delete nano;
 	}
 
