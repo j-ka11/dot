@@ -1,4 +1,4 @@
-#include "Shader.h"
+#include "../include/Shader.h"
 
 Shader::Shader(string& filepath) {
 	m_FilePath = filepath;

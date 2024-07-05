@@ -1,6 +1,6 @@
 #include "Texture.h"
 
-using namespace std;
+/*using namespace std;
 Texture::Texture(const string& filepath) {
 	m_RendererID = 0;
 	m_FilePath = filepath;
@@ -41,4 +41,4 @@ void Texture::bind(unsigned int slot) const {
 
 void Texture::unBind() const {
 	GLCall(glBindTexture(GL_TEXTURE_2D, 0));
-}
+}*/

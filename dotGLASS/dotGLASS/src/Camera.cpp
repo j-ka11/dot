@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "../include/Camera.h"
 
 void Camera::processKeyboard(CameraMovement direction, float deltaTime) {
 	float velocity = this->movementSpeed * deltaTime;

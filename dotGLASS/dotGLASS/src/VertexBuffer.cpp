@@ -1,4 +1,4 @@
-#include "VertexBuffer.h"
+#include "../include/VertexBuffer.h"
 
 VertexBuffer::VertexBuffer(const void* vertices, unsigned int size) {
 	bind();

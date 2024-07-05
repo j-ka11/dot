@@ -1,4 +1,4 @@
-#include "IndexBuffer.h"
+#include "../include/IndexBuffer.h"
 
 IndexBuffer::IndexBuffer(unsigned int* indices, unsigned int count) {
 	m_Count = count;

@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 
 #include <string>
 #include <iostream>
@@ -23,4 +23,4 @@ public:
 
 	inline int getWidth() const { return m_Width; }
 	inline int getHeight() const { return m_Height; }
-};
+};*/

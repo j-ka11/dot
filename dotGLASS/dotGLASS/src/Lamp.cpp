@@ -1,4 +1,4 @@
-#include "Lamp.h"
+#include "../include/Lamp.h"
 
 static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
 

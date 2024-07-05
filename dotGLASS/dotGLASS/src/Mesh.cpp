@@ -1,4 +1,4 @@
-#include "Mesh.h"
+#include "../include/Mesh.h"
 
 static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
 

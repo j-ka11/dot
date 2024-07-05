@@ -1,4 +1,4 @@
-#include "Engine.h"
+#include "../include/Engine.h"
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mode);
 void mouseCallback(GLFWwindow* window, double xPos, double yPos);

@@ -1,4 +1,4 @@
-#include "ErrorDirectives.h"
+#include "../include/ErrorDirectives.h"
 
 using namespace std;
 void glClearError() {

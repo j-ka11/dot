@@ -3,7 +3,7 @@
 
 // G++ command: g++ -msse2 -IC:\glew-2.1.0\include -IC:\glfw-3.2.1\include -IC:\glm -IC:\Assimp\include -LC:\glew-2.1.0/lib *.cpp
 
-#include "Engine.h"
+#include "../include/Engine.h"
 
 int main() {
 

@@ -1,4 +1,4 @@
-#include "Buffer.h"
+#include "../include/Buffer.h"
 
 Buffer::Buffer() {
 	GLCall(glGenBuffers(1, &m_BufferID));

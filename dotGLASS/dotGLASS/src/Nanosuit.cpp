@@ -1,4 +1,4 @@
-#include "Nanosuit.h"
+#include "../include/Nanosuit.h"
 
 Nanosuit::Nanosuit() {
 	filepath = "res/models/nanosuit.fbx";
