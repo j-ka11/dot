@@ -1,5 +1,25 @@
 #include "Lamp.h"
 
+static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
+
+	switch (type) {
+	case ShaderDataType::FLOAT:     return GL_FLOAT;
+	case ShaderDataType::FLOAT2:    return GL_FLOAT;
+	case ShaderDataType::FLOAT3:    return GL_FLOAT;
+	case ShaderDataType::FLOAT4:    return GL_FLOAT;
+	case ShaderDataType::MAT3:      return GL_FLOAT;
+	case ShaderDataType::MAT4:      return GL_FLOAT;
+	case ShaderDataType::INT:       return GL_INT;
+	case ShaderDataType::INT2:      return GL_INT;
+	case ShaderDataType::INT3:      return GL_INT;
+	case ShaderDataType::INT4:      return GL_INT;
+	case ShaderDataType::BOOL:      return GL_BOOL;
+	}
+
+	return 0;
+
+}
+
 unsigned int indices[] = {
 		0, 1, 2, 3, 4, 5,
 		6, 7, 8, 9, 10, 11,
@@ -64,22 +84,36 @@ Lamp::Lamp() {
 	lightPosition.y = 1.5f;
 	lightPosition.z = 0.0f;
 
+	GLCall(glGenVertexArrays(1, &m_VertexArrayID));
 	indexBuffer = new IndexBuffer(indices, 32);
-	vertexArray = new VertexArray();
 	vertexBuffer = new VertexBuffer(vertices, sizeof(vertices));
 
 	vertexBuffer->setLayout(vertexBufferLayout);
-	vertexArray->addIndexBuffer(indexBuffer);
-	vertexArray->addVertexBuffer(vertexBuffer);
-	vertexArray->unBind();
+	bind();
+	indexBuffer->bind();
+	bind();
+	vertexBuffer->bind();
+
+	unsigned int index = 0;
+	for (const auto& element : vertexBufferLayout.getElements()) {
+		glEnableVertexAttribArray(index);
+		glVertexAttribPointer(index,
+			element.getComponentCount(),
+			ShaderDataTypeToOpenGLBaseType(element.type),
+			element.normalized ? GL_TRUE : GL_FALSE,
+			vertexBufferLayout.getStride(),
+			(const void*)element.offset);
+		index++;
+	}
+	unBind();
 }
 
 void Lamp::bind() {
-	vertexArray->bind();
+	GLCall(glBindVertexArray(m_VertexArrayID));
 }
 
 void Lamp::unBind() {
-	vertexArray->unBind();
+	GLCall(glBindVertexArray(0));
 }
 
 void Lamp::draw() {
@@ -88,6 +122,5 @@ void Lamp::draw() {
 
 Lamp::~Lamp() {
 	delete indexBuffer;
-	delete vertexArray;
 	delete vertexBuffer;
 }
