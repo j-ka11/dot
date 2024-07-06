@@ -14,33 +14,37 @@
 
 #include "ErrorDirectives.h"
 
-using namespace std;
-struct ShaderProgramSource {
-	string VertexSource;
-	string FragmentSource;
-};
+namespace dotGLASS {
 
-class Shader {
-private:
-	string m_FilePath;
-	unsigned int m_RendererID;
-	unordered_map<string, int> m_UniformLocationCache;
+	struct ShaderProgramSource {
+		std::string VertexSource;
+		std::string FragmentSource;
+	};
 
-	int getUniformLocation(const string& name);
-	ShaderProgramSource parseShader(const string& filepath);
-	unsigned int compileShader(const string& source, unsigned int type);
-	unsigned int createShader(const string& vertexSource, const string& fragmentSource);
-public:
-	Shader(string& filepath);
-	~Shader();
+	class Shader {
+		public:
+			Shader(std::string& filePath);
+			~Shader();
 
-	void bind() const;
-	void unBind() const;
+			void bind() const;
+			void unBind() const;
 
-	//set uniforms
-	void setUniform1i(const string& name, int value); //value is the texture slot that we have bound our texture to
-	void setUniform1f(const string& name, float value);
-	void setUniform3f(const string& name, float v0, float v1, float v2);
-	void setUniform4f(const string& name, float v0, float v1, float v2, float v3);
-	void setUniformMat4(const string& name, const glm::mat4 matrix);
-};
+			//set uniforms
+			void setUniform1i(const std::string& name, int value); //value is the texture slot that we have bound our texture to
+			void setUniform1f(const std::string& name, float value);
+			void setUniform3f(const std::string& name, float v0, float v1, float v2);
+			void setUniform4f(const std::string& name, float v0, float v1, float v2, float v3);
+			void setUniformMat4(const std::string& name, const glm::mat4 matrix);
+		private:
+			std::string filePath;
+			unsigned int rendererID;
+			std::unordered_map<std::string, int> uniformLocationCache;
+
+			unsigned int compileShader(const std::string& source, unsigned int type);
+			unsigned int createShader(const std::string& vertexSource, const std::string& fragmentSource);
+			ShaderProgramSource parseShader(const std::string& filepath);
+
+			int getUniformLocation(const std::string& name);
+	};
+
+}

@@ -1,22 +1,16 @@
-#include "../include/ArObject.h"
+#include "Object/ArObject.h"
 
-ArObject::ArObject() {}
+dotGLASS::Object::ArObject::ArObject() {}
 
-ArObject::~ArObject() {}
+dotGLASS::Object::ArObject::~ArObject() {}
 
-void ArObject::bind() {
+void dotGLASS::Object::ArObject::bind() {
 	for (int i = 0; i < meshes.size(); i++) {
 		meshes.at(i).bind();
 	}
 }
 
-void ArObject::unBind() {
-	for (int i = 0; i < meshes.size(); i++) {
-		meshes.at(i).unBind();
-	}
-}
-
-void ArObject::draw() {
+void dotGLASS::Object::ArObject::draw() {
 	for (int i = 0; i < meshes.size(); i++) {
 		Mesh mesh = meshes.at(i);
 		mesh.bind();
@@ -24,11 +18,11 @@ void ArObject::draw() {
 	}
 }
 
-void ArObject::loadAsset() {
+void dotGLASS::Object::ArObject::loadAsset() {
 	Assimp::Importer importer;
 	const aiScene* scene = importer.ReadFile(filepath, aiProcess_Triangulate | aiProcess_FlipUVs);
 	if (!scene || scene->mFlags == AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode) {
-		cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << endl;
+		std::cout << "ERROR::ASSIMP:: " << importer.GetErrorString() << std::endl;
 		return;
 	}
 
@@ -36,21 +30,10 @@ void ArObject::loadAsset() {
 	processNode(scene->mRootNode, scene);
 }
 
-void ArObject::processNode(aiNode* node, const aiScene* scene) {
-	for (int i = 0; i < node->mNumMeshes; i++) {
-		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
-		meshes.push_back(processMesh(mesh, scene));
-	}
-
-	for (int i = 0; i < node->mNumChildren; i++) {
-		processNode(node->mChildren[i], scene);
-	}
-}
-
-Mesh ArObject::processMesh(aiMesh* mesh, const aiScene* scene) {
-	vector<Vertex> vertices;
-	vector<unsigned int> indices;
-	vector<AssimpTexture> textures;
+dotGLASS::Mesh dotGLASS::Object::ArObject::processMesh(aiMesh* mesh, const aiScene* scene) {
+	std::vector<Vertex> vertices;
+	std::vector<unsigned int> indices;
+	std::vector<AssimpTexture> textures;
 
 	for (int i = 0; i < mesh->mNumVertices; i++) {
 		Vertex vertex;
@@ -90,4 +73,21 @@ Mesh ArObject::processMesh(aiMesh* mesh, const aiScene* scene) {
 	}
 
 	return Mesh(vertices, indices, textures);
+}
+
+void dotGLASS::Object::ArObject::processNode(aiNode* node, const aiScene* scene) {
+	for (int i = 0; i < node->mNumMeshes; i++) {
+		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
+		meshes.push_back(processMesh(mesh, scene));
+	}
+
+	for (int i = 0; i < node->mNumChildren; i++) {
+		processNode(node->mChildren[i], scene);
+	}
+}
+
+void dotGLASS::Object::ArObject::unBind() {
+	for (int i = 0; i < meshes.size(); i++) {
+		meshes.at(i).unBind();
+	}
 }

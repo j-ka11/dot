@@ -5,13 +5,16 @@
 #define GLEW_STATIC
 #include "GL/glew.h"
 
-#define ASSERT(x) if (!(x)) __debugbreak();
-#define GLCall(x) glClearError();\
-	x;\
-	ASSERT(glLogError(#x, __FILE__, __LINE__))
+namespace dotGLASS {
 
-void glClearError();
-bool glLogError(const char* function, const char* file, int line);
+	#define ASSERT(x) if (!(x)) __debugbreak();
+	#define GLCall(x) glClearError();\
+		x;\
+		ASSERT(glLogError(#x, __FILE__, __LINE__))
 
-class ErrorDirectives {
-};
+	void glClearError();
+	bool glLogError(const char* function, const char* file, int line);
+
+	class ErrorDirectives {};
+
+}

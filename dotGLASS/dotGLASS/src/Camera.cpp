@@ -1,6 +1,6 @@
-#include "../include/Camera.h"
+#include "Camera.h"
 
-void Camera::processKeyboard(CameraMovement direction, float deltaTime) {
+void dotGLASS::Camera::processKeyboard(dotGLASS::CameraMovement direction, float deltaTime) {
 	float velocity = this->movementSpeed * deltaTime;
 	if (direction == FORWARD) {
 		this->position += this->front * velocity;
@@ -16,7 +16,7 @@ void Camera::processKeyboard(CameraMovement direction, float deltaTime) {
 	}
 }
 
-void Camera::processMouseMovement(float xOffset, float yOffset, bool constrainPitch) {
+void dotGLASS::Camera::processMouseMovement(float xOffset, float yOffset, bool constrainPitch) {
 	xOffset *= this->mouseSensitivity;
 	yOffset *= this->mouseSensitivity;
 
@@ -35,11 +35,9 @@ void Camera::processMouseMovement(float xOffset, float yOffset, bool constrainPi
 	updateCameraVectors();
 }
 
-void Camera::processMouseScroll(float yOffset) {
+void dotGLASS::Camera::processMouseScroll(float yOffset) {}
 
-}
-
-void Camera::updateCameraVectors() {
+void dotGLASS::Camera::updateCameraVectors() {
 	glm::vec3 front;
 	front.x = cos(glm::radians(this->yaw)) * cos(glm::radians(this->pitch));
 	front.y = sin(glm::radians(this->pitch));

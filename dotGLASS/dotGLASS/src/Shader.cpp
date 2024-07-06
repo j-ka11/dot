@@ -1,46 +1,22 @@
-#include "../include/Shader.h"
+#include "Shader.h"
 
-Shader::Shader(string& filepath) {
-	m_FilePath = filepath;
-	m_RendererID = 0;
+dotGLASS::Shader::Shader(std::string& filePath) {
+	this->filePath = filePath;
+	rendererID = 0;
 
-	ShaderProgramSource source = parseShader(filepath);
-	GLCall(m_RendererID = createShader(source.VertexSource, source.FragmentSource));
+	ShaderProgramSource source = parseShader(filePath);
+	GLCall(rendererID = createShader(source.VertexSource, source.FragmentSource));
 }
 
-Shader::~Shader() {
-	GLCall(glDeleteProgram(m_RendererID));
+dotGLASS::Shader::~Shader() {
+	GLCall(glDeleteProgram(rendererID));
 }
 
-ShaderProgramSource Shader::parseShader(const string& filepath) {
-	ifstream stream(filepath);
-
-	string line;
-	stringstream ss[2];
-
-	enum class ShaderType {
-		NONE = -1, VERTEX = 0, FRAGMENT = 1
-	};
-	ShaderType type = ShaderType::NONE;
-	while (getline(stream, line)) {
-		if (line.find("#shader") != string::npos) {
-			if (line.find("vertex") != string::npos) {
-				//set mode to vertex
-				type = ShaderType::VERTEX;
-			}
-			else if (line.find("fragment") != string::npos) {
-				//set mode to fragment
-				type = ShaderType::FRAGMENT;
-			}
-		}
-		else {
-			ss[(int)type] << line << '\n';
-		}
-	}
-	return { ss[0].str(), ss[1].str() };
+void dotGLASS::Shader::bind() const {
+	GLCall(glUseProgram(rendererID));
 }
 
-unsigned int Shader::compileShader(const string& source, unsigned int type) {
+unsigned int dotGLASS::Shader::compileShader(const std::string& source, unsigned int type) {
 	GLCall(unsigned int id = glCreateShader(type));
 	const char* src = source.c_str();
 	GLCall(glShaderSource(id, 1, &src, nullptr));
@@ -54,11 +30,11 @@ unsigned int Shader::compileShader(const string& source, unsigned int type) {
 		GLCall(glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length));
 		char* message = (char*)alloca(length * sizeof(char));
 		GLCall(glGetShaderInfoLog(id, length, &length, message));
-		string shaderType = "";
+		std::string shaderType = "";
 		if (type == GL_VERTEX_SHADER) shaderType = "vertex";
 		else shaderType = "fragment";
-		cout << "Failed to compile " + shaderType + " shader boss" << endl;
-		cout << message << endl;
+		std::cout << "Failed to compile " + shaderType + " shader boss" << std::endl;
+		std::cout << message << std::endl;
 		GLCall(glDeleteShader(id));
 		return 0;
 	}
@@ -66,13 +42,13 @@ unsigned int Shader::compileShader(const string& source, unsigned int type) {
 	return id;
 }
 
-unsigned int Shader::createShader(const string& vertexSource, const string& fragmentSource) {
+unsigned int dotGLASS::Shader::createShader(const std::string& vertexSource, const std::string& fragmentSource) {
 	GLCall(unsigned int program = glCreateProgram());
 	GLCall(unsigned int vs = compileShader(vertexSource, GL_VERTEX_SHADER));
 	GLCall(unsigned int fs = compileShader(fragmentSource, GL_FRAGMENT_SHADER));
 
-	GLCall(glAttachShader(program, vs))
-		GLCall(glAttachShader(program, fs));
+	GLCall(glAttachShader(program, vs));
+	GLCall(glAttachShader(program, fs));
 	GLCall(glLinkProgram(program));
 	GLCall(glValidateProgram(program));
 
@@ -82,42 +58,66 @@ unsigned int Shader::createShader(const string& vertexSource, const string& frag
 	return program;
 }
 
-void Shader::bind() const {
-	GLCall(glUseProgram(m_RendererID));
+dotGLASS::ShaderProgramSource dotGLASS::Shader::parseShader(const std::string& filepath) {
+	std::ifstream stream(filepath);
+
+	std::string line;
+	std::stringstream ss[2];
+
+	enum class ShaderType {
+		NONE = -1, VERTEX = 0, FRAGMENT = 1
+	};
+	ShaderType type = ShaderType::NONE;
+	while (getline(stream, line)) {
+		if (line.find("#shader") != std::string::npos) {
+			if (line.find("vertex") != std::string::npos) {
+				//set mode to vertex
+				type = ShaderType::VERTEX;
+			}
+			else if (line.find("fragment") != std::string::npos) {
+				//set mode to fragment
+				type = ShaderType::FRAGMENT;
+			}
+		}
+		else {
+			ss[(int)type] << line << '\n';
+		}
+	}
+	return { ss[0].str(), ss[1].str() };
 }
 
-void Shader::unBind() const {
+void dotGLASS::Shader::unBind() const {
 	GLCall(glUseProgram(0));
 }
 
-void Shader::setUniform1i(const string& name, int value) {
+int dotGLASS::Shader::getUniformLocation(const std::string& name) {
+	if (uniformLocationCache.find(name) != uniformLocationCache.end())
+		return uniformLocationCache[name];
+
+	GLCall(int location = glGetUniformLocation(rendererID, name.c_str()));
+	if (location == -1)
+		std::cout << "Warning: Uniform '" << name << "' doesn't exist" << std::endl;
+
+	uniformLocationCache[name] = location;
+	return location;
+}
+
+void dotGLASS::Shader::setUniform1i(const std::string& name, int value) {
 	GLCall(glUniform1i(getUniformLocation(name), value));
 }
 
-void Shader::setUniform1f(const string& name, float value) {
+void dotGLASS::Shader::setUniform1f(const std::string& name, float value) {
 	GLCall(glUniform1f(getUniformLocation(name), value));
 }
 
-void Shader::setUniform3f(const string& name, float v0, float v1, float v2) {
+void dotGLASS::Shader::setUniform3f(const std::string& name, float v0, float v1, float v2) {
 	GLCall(glUniform3f(getUniformLocation(name), v0, v1, v2));
 }
 
-void Shader::setUniform4f(const string& name, float v0, float v1, float v2, float v3) {
+void dotGLASS::Shader::setUniform4f(const std::string& name, float v0, float v1, float v2, float v3) {
 	GLCall(glUniform4f(getUniformLocation(name), v0, v1, v2, v3));
 }
 
-void Shader::setUniformMat4(const string& name, const glm::mat4 matrix) {
+void dotGLASS::Shader::setUniformMat4(const std::string& name, const glm::mat4 matrix) {
 	GLCall(glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &matrix[0][0]));
-}
-
-int Shader::getUniformLocation(const string& name) {
-	if (m_UniformLocationCache.find(name) != m_UniformLocationCache.end())
-		return m_UniformLocationCache[name];
-
-	GLCall(int location = glGetUniformLocation(m_RendererID, name.c_str()));
-	if (location == -1)
-		cout << "Warning: Uniform '" << name << "' doesn't exist" << endl;
-
-	m_UniformLocationCache[name] = location;
-	return location;
 }

@@ -12,37 +12,38 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <assimp/types.h>
 
-#include "IndexBuffer.h"
+#include "GPU/IndexBuffer.h"
+#include "GPU/VertexBuffer.h"
 #include "Shader.h"
-#include "VertexBuffer.h"
 
-using namespace std;
-struct AssimpTexture {
-	GLuint id;
-	string type;
-	aiString path;
-};
+namespace dotGLASS {
 
-class Mesh {
-public:
-	Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<AssimpTexture> textures);
+	struct AssimpTexture {
+		GLuint id;
+		std::string type;
+		aiString path;
+	};
 
-	void bind();
-	void unBind();
+	class Mesh {
+		public:
+			Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<AssimpTexture> textures);
 
-	void draw(Shader meshShader);
-	inline vector<Vertex> getVertices() { return vertices; }
-	inline IndexBuffer* getIndexBuffer() { return indexBuffer; }
-private:
-	unsigned int m_VertexArrayID;
+			void bind();
+			void draw(Shader meshShader);
+			void unBind();
 
-	IndexBuffer* indexBuffer;
-	VertexBuffer* vertexBuffer;
-	VertexBufferLayout layout;
+			inline GPU::IndexBuffer* getIndexBuffer() { return indexBuffer; }
+			inline std::vector<Vertex> getVertices() { return vertices; }
+		private:
+			GPU::IndexBuffer* indexBuffer;
+			std::vector<unsigned int> indices;
+			VertexBufferLayout layout;
+			std::vector<AssimpTexture> textures;
+			unsigned int vertexArrayID;
+			GPU::VertexBuffer* vertexBuffer;
+			std::vector<Vertex> vertices;
 
-	vector<Vertex> vertices;
-	vector<unsigned int> indices;
-	vector<AssimpTexture> textures;
+			void setupMesh();
+	};
 
-	void setupMesh();
-};
+}

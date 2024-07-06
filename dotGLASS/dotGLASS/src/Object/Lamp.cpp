@@ -1,19 +1,19 @@
-#include "../include/Lamp.h"
+#include "Object/Lamp.h"
 
-static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
+static GLenum ShaderDataTypeToOpenGLBaseType(dotGLASS::ShaderDataType type) {
 
 	switch (type) {
-	case ShaderDataType::FLOAT:     return GL_FLOAT;
-	case ShaderDataType::FLOAT2:    return GL_FLOAT;
-	case ShaderDataType::FLOAT3:    return GL_FLOAT;
-	case ShaderDataType::FLOAT4:    return GL_FLOAT;
-	case ShaderDataType::MAT3:      return GL_FLOAT;
-	case ShaderDataType::MAT4:      return GL_FLOAT;
-	case ShaderDataType::INT:       return GL_INT;
-	case ShaderDataType::INT2:      return GL_INT;
-	case ShaderDataType::INT3:      return GL_INT;
-	case ShaderDataType::INT4:      return GL_INT;
-	case ShaderDataType::BOOL:      return GL_BOOL;
+		case dotGLASS::ShaderDataType::FLOAT:     return GL_FLOAT;
+		case dotGLASS::ShaderDataType::FLOAT2:    return GL_FLOAT;
+		case dotGLASS::ShaderDataType::FLOAT3:    return GL_FLOAT;
+		case dotGLASS::ShaderDataType::FLOAT4:    return GL_FLOAT;
+		case dotGLASS::ShaderDataType::MAT3:      return GL_FLOAT;
+		case dotGLASS::ShaderDataType::MAT4:      return GL_FLOAT;
+		case dotGLASS::ShaderDataType::INT:       return GL_INT;
+		case dotGLASS::ShaderDataType::INT2:      return GL_INT;
+		case dotGLASS::ShaderDataType::INT3:      return GL_INT;
+		case dotGLASS::ShaderDataType::INT4:      return GL_INT;
+		case dotGLASS::ShaderDataType::BOOL:      return GL_BOOL;
 	}
 
 	return 0;
@@ -30,9 +30,9 @@ unsigned int indices[] = {
 };
 
 // TODO(j-ka11): Move inside class.
-VertexBufferLayout vertexBufferLayout = {
-	{ShaderDataType::FLOAT3, "position"},
-	{ShaderDataType::FLOAT2, "texture"}
+dotGLASS::VertexBufferLayout vertexBufferLayout = {
+	{dotGLASS::ShaderDataType::FLOAT3, "position"},
+	{dotGLASS::ShaderDataType::FLOAT2, "texture"}
 };
 
 float vertices[] = {
@@ -79,14 +79,14 @@ float vertices[] = {
 		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f
 };
 
-Lamp::Lamp() {
+dotGLASS::Object::Lamp::Lamp() {
 	lightPosition.x = 1.2f;
 	lightPosition.y = 1.5f;
 	lightPosition.z = 0.0f;
 
-	GLCall(glGenVertexArrays(1, &m_VertexArrayID));
-	indexBuffer = new IndexBuffer(indices, 32);
-	vertexBuffer = new VertexBuffer(vertices, sizeof(vertices));
+	GLCall(glGenVertexArrays(1, &vertexArrayID));
+	indexBuffer = new dotGLASS::GPU::IndexBuffer(indices, 32);
+	vertexBuffer = new dotGLASS::GPU::VertexBuffer(vertices, sizeof(vertices));
 
 	vertexBuffer->setLayout(vertexBufferLayout);
 	bind();
@@ -108,19 +108,19 @@ Lamp::Lamp() {
 	unBind();
 }
 
-void Lamp::bind() {
-	GLCall(glBindVertexArray(m_VertexArrayID));
+dotGLASS::Object::Lamp::~Lamp() {
+	delete indexBuffer;
+	delete vertexBuffer;
 }
 
-void Lamp::unBind() {
-	GLCall(glBindVertexArray(0));
+void dotGLASS::Object::Lamp::bind() {
+	GLCall(glBindVertexArray(vertexArrayID));
 }
 
-void Lamp::draw() {
+void dotGLASS::Object::Lamp::draw() {
 	GLCall(glDrawElements(GL_TRIANGLES, indexBuffer->getCount(), GL_UNSIGNED_INT, nullptr));
 }
 
-Lamp::~Lamp() {
-	delete indexBuffer;
-	delete vertexBuffer;
+void dotGLASS::Object::Lamp::unBind() {
+	GLCall(glBindVertexArray(0));
 }

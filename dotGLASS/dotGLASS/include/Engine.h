@@ -11,22 +11,26 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "Lamp.h"
-#include "Shader.h"
 #include "Camera.h"
-#include "ArObject.h"
-#include "Arrow.h"
-#include "Nanosuit.h"
+#include "Object/ArObject.h"
+#include "Object/Arrow.h"
+#include "Object/Lamp.h"
+#include "Object/Nanosuit.h"
+#include "Shader.h"
 
-class Engine {
-	public:
-		Engine();
-		~Engine();
+namespace dotGLASS {
 
-		void run();
-	private:
-		GLFWwindow* window; // (In the accompanying source code, this variable is global for simplicity)
+	class Engine {
+		public:
+			Engine();
+			~Engine();
 
-		void openWindow();
-		void doMovement();
-};
+			void run();
+		private:
+			GLFWwindow* window; // (In the accompanying source code, this variable is global for simplicity)
+
+			void doMovement();
+			void openWindow();
+	};
+
+}

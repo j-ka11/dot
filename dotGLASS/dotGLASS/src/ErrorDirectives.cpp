@@ -1,16 +1,15 @@
-#include "../include/ErrorDirectives.h"
+#include "ErrorDirectives.h"
 
-using namespace std;
-void glClearError() {
+void dotGLASS::glClearError() {
 	while (glGetError() != GL_NO_ERROR);
 }
 
-bool glLogError(const char* function, const char* file, int line) {
+bool dotGLASS::glLogError(const char* function, const char* file, int line) {
 	while (GLenum error = glGetError()) {
-		cout << "OpenGL Error: " << error << endl;
-		cout << "Function name: " << function << endl;
-		cout << "File name: " << file << endl;
-		cout << "Line number: " << line << endl << endl;
+		std::cout << "OpenGL Error: " << error << std::endl;
+		std::cout << "Function name: " << function << std::endl;
+		std::cout << "File name: " << file << std::endl;
+		std::cout << "Line number: " << line << std::endl << std::endl;
 		return false;
 	}
 	return true;
