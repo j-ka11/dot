@@ -1,3 +1,0 @@
-# dotGLASS
-
-### dotGLASS subheading
