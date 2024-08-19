@@ -5,7 +5,7 @@
 #include <fstream>
 #include <sstream>
 
-#define GLEW_STATIC //***THIS LINE NEEDED TO USE GLEW***
+#define GLEW_STATIC
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>

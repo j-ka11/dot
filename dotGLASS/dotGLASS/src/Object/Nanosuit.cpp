@@ -1,7 +1,7 @@
 #include "Object/Nanosuit.h"
 
 dotGLASS::Object::Nanosuit::Nanosuit() {
-	filepath = "res/models/nanosuit.fbx";
+	filepath = "dotGLASS/res/models/nanosuit.fbx";
 	loadAsset();
 }
 

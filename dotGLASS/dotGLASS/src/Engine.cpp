@@ -102,13 +102,13 @@ void dotGLASS::Engine::run() {
 		int screenWidth, screenHeight;
 		glfwGetFramebufferSize(window, &screenWidth, &screenHeight);
 
-		std::string modelShaderFile = "res/shaders/modelLoading.shader";
+		std::string modelShaderFile = "dotGLASS/res/shaders/modelLoading.shader";
 		Shader modelShader(modelShaderFile);
 		modelShader.unBind();
 
 		dotGLASS::Object::ArObject* nano = new dotGLASS::Object::Nanosuit();
 
-		std::string lampShaderFile = "res/shaders/lamp.shader";
+		std::string lampShaderFile = "dotGLASS/res/shaders/lamp.shader";
 		Shader lampShader(lampShaderFile);
 		lampShader.unBind();
 
