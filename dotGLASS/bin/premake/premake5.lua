@@ -1,42 +1,43 @@
 -- premake5.lua
+
+relsolutiondir = "../.."
+relprojectdir = "../../dotGLASS"
+
 workspace "dotGLASS"
    configurations { "Debug", "Release" }
-
    platforms { "x64" }
+   location ( relsolutiondir )
 
     --Set architecture
     filter { "platforms:x64" }
         system "Windows"
         architecture "x64"
-
     filter { }
 
 project "dotGLASS"
    kind "ConsoleApp"
    language "C++"
    cppdialect "C++17"
+   location ( relprojectdir )
 
-   targetdir "bin/%{cfg.buildcfg}"
+   targetdir ( relprojectdir .. "/bin/%{cfg.buildcfg}" )
 
    files {
-      "dotGLASS/include/**.h",
-      "dotGLASS/src/**.cpp"
+      relprojectdir .. "/include/**.h",
+      relprojectdir .. "/src/**.cpp"
    }
-
    includedirs {
-	   "dotGLASS/include",
-       "dotGLASS/vendor/assimp/include",
-       "dotGLASS/vendor/glew/include",
-       "dotGLASS/vendor/glfw/x64/include",
-       "dotGLASS/vendor/glm/"
+	   relprojectdir .. "/include",
+       relprojectdir .. "/vendor/assimp/include",
+       relprojectdir .. "/vendor/glew/include",
+       relprojectdir .. "/vendor/glfw/x64/include",
+       relprojectdir .. "/vendor/glm/"
    }
-
    libdirs {
-       "dotGLASS/vendor/assimp/lib/x64",
-       "dotGLASS/vendor/glew/x64/lib",
-       "dotGLASS/vendor/glfw/x64/lib"
+       relprojectdir .. "/vendor/assimp/lib/x64",
+       relprojectdir .. "/vendor/glew/x64/lib",
+       relprojectdir .. "/vendor/glfw/x64/lib"
    }
-
    links {
        "assimp-vc143-mt",
        "glew32s",
@@ -48,7 +49,6 @@ project "dotGLASS"
    filter "configurations:Debug"
       defines { "DEBUG" }
       symbols "On"
-
    filter "configurations:Release"
       defines { "NDEBUG" }
       optimize "On"
