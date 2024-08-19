@@ -1,3 +1,3 @@
 # dotGLASS
 
-Microsoft Visual Studio project folder.
+## microsoft visual studio project
