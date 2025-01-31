@@ -1,3 +1,7 @@
+/**
+ * @file Buffer.cpp
+ */
+
 #include "GPU/Buffer.h"
 
 dotGLASS::GPU::Buffer::Buffer() {

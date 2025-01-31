@@ -1,3 +1,7 @@
+/**
+ * @file VertexBuffer.h
+ */
+
 #pragma once
 
 #include <vector>

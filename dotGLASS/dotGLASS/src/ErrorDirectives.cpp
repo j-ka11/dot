@@ -1,3 +1,7 @@
+/**
+ * @file ErrorDirectives.cpp
+ */
+
 #include "ErrorDirectives.h"
 
 void dotGLASS::glClearError() {

@@ -1,3 +1,7 @@
+/**
+ * @file Nanosuit.cpp
+ */
+
 #include "Object/Nanosuit.h"
 
 dotGLASS::Object::Nanosuit::Nanosuit() {

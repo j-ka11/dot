@@ -1,3 +1,10 @@
+/**
+ * @file main.cpp
+ * 
+ * @brief Main file.
+ * 
+ */
+
 //This is the source code for the dot environment
 //created by Josh Kall on December 14, 2018, 02:14 AM
 
@@ -5,6 +12,9 @@
 
 #include "Engine.h"
 
+/**
+ *  @brief Main loop.
+ */
 int main() {
 
 	dotGLASS::Engine arEngine;

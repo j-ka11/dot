@@ -1,3 +1,7 @@
+/**
+ * @file VertexBufferLayout.h
+ */
+
 #pragma once
 
 #include <vector>

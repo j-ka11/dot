@@ -1,3 +1,7 @@
+/**
+ * @file Mesh.cpp
+ */
+
 #include "Mesh.h"
 
 static GLenum ShaderDataTypeToOpenGLBaseType(dotGLASS::ShaderDataType type) {

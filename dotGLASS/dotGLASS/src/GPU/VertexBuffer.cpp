@@ -1,3 +1,7 @@
+/**
+ * @file VertexBuffer.cpp
+ */
+
 #include "GPU/VertexBuffer.h"
 
 dotGLASS::GPU::VertexBuffer::VertexBuffer(const void* vertices, unsigned int size) {

@@ -1,3 +1,7 @@
+/**
+ * @file Lamp.h
+ */
+
 #pragma once
 
 #define GLEW_STATIC

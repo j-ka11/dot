@@ -1,3 +1,7 @@
+/**
+ * @file Camera.cpp
+ */
+
 #include "Camera.h"
 
 void dotGLASS::Camera::processKeyboard(dotGLASS::CameraMovement direction, float deltaTime) {

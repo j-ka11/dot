@@ -1,3 +1,7 @@
+/**
+ * @file ErrorDirectives.h
+ */
+
 #pragma once
 
 #include <iostream>

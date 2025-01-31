@@ -1,3 +1,7 @@
+/**
+ * @file Lamp.cpp
+ */
+
 #include "Object/Lamp.h"
 
 static GLenum ShaderDataTypeToOpenGLBaseType(dotGLASS::ShaderDataType type) {

@@ -1,3 +1,7 @@
+/**
+ * @file Arrow.cpp
+ */
+
 #include "Object/Arrow.h"
 
 dotGLASS::Object::Arrow::Arrow() {

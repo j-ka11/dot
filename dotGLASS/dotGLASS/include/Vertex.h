@@ -1,3 +1,7 @@
+/**
+ * @file Vertex.h
+ */
+
 #pragma once
 
 #include <glm/glm.hpp>

@@ -1,3 +1,7 @@
+/**
+ * @file Camera.h
+ */
+
 #pragma once
 
 #include <vector>

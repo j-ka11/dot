@@ -1,3 +1,7 @@
+/**
+ * @file Shader.cpp
+ */
+
 #include "Shader.h"
 
 dotGLASS::Shader::Shader(std::string& filePath) {

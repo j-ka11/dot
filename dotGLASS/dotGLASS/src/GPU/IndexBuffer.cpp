@@ -1,3 +1,7 @@
+/**
+ * @file IndexBuffer.cpp
+ */
+
 #include "GPU/IndexBuffer.h"
 
 dotGLASS::GPU::IndexBuffer::IndexBuffer(unsigned int* indices, unsigned int count) {

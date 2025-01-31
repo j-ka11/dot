@@ -1,3 +1,7 @@
+/**
+ * @file Nanosuit.h
+ */
+
 #pragma once
 
 #define GLEW_STATIC

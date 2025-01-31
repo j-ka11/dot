@@ -1,3 +1,7 @@
+/**
+ * @file ArObject.cpp
+ */
+
 #include "Object/ArObject.h"
 
 dotGLASS::Object::ArObject::ArObject() {}
