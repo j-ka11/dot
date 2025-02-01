@@ -14,6 +14,9 @@
 namespace dotGLASS {
 	namespace Object {
 
+		/**
+		 * @class Lamp Lamp.h "Object/Lamp.h"
+		 */
 		class Lamp : public ArObject {
 		public:
 			Lamp();

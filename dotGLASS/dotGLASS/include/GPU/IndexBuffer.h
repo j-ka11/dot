@@ -14,6 +14,9 @@
 namespace dotGLASS {
 	namespace GPU {
 
+		/**
+		 * @class IndexBuffer IndexBuffer.h "GPU/IndexBuffer.h"
+		 */
 		class IndexBuffer : public Buffer {
 			public:
 				IndexBuffer(unsigned int* indices, unsigned int count);

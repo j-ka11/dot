@@ -8,6 +8,9 @@
 
 namespace dotGLASS {
 
+	/**
+	 * @class Vertex Vertex.h "Vertex.h"
+	 */
 	class Vertex {
 		public:
 			glm::vec3 positions;

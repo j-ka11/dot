@@ -28,6 +28,9 @@ namespace dotGLASS {
 		aiString path;
 	};
 
+	/**
+	 * @class Mesh Mesh.h "Mesh.h"
+	 */
 	class Mesh {
 		public:
 			Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<AssimpTexture> textures);

@@ -19,6 +19,9 @@ namespace dotGLASS {
 	void glClearError();
 	bool glLogError(const char* function, const char* file, int line);
 
+	/**
+	 * @class ErrorDirectives ErrorDirectives.h "ErrorDirectives.h"
+	 */
 	class ErrorDirectives {};
 
 }

@@ -12,6 +12,9 @@
 namespace dotGLASS {
 	namespace Object {
 
+		/**
+		 * @class Nanosuit Nanosuit.h "Object/Nanosuit.h"
+		 */
 		class Nanosuit : public ArObject {
 			public:
 				Nanosuit();

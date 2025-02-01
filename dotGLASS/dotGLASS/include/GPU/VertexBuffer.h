@@ -15,6 +15,9 @@
 namespace dotGLASS {
 	namespace GPU {
 
+		/**
+		 * @class VertexBuffer VertexBuffer.h "GPU/VertexBuffer.h"
+		 */
 		class VertexBuffer : public Buffer {
 			public:
 				VertexBuffer(const void* vertices, unsigned int size);

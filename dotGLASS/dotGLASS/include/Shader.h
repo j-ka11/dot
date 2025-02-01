@@ -25,6 +25,9 @@ namespace dotGLASS {
 		std::string FragmentSource;
 	};
 
+	/**
+	 * @class Shader Shader.h "Shader.h"
+	 */
 	class Shader {
 		public:
 			Shader(std::string& filePath);

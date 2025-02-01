@@ -24,6 +24,9 @@
 
 namespace dotGLASS {
 
+	/**
+	 * @class Engine Engine.h "Engine.h"
+	 */
 	class Engine {
 		public:
 			Engine();

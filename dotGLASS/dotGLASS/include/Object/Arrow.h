@@ -12,6 +12,9 @@
 namespace dotGLASS {
 	namespace Object {
 
+		/**
+		 * @class Arrow Arrow.h "Object/Arrow.h"
+		 */
 		class Arrow : public ArObject {
 			public:
 				Arrow();

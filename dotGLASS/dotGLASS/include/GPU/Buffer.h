@@ -15,6 +15,9 @@
 namespace dotGLASS {
 	namespace GPU {
 
+		/**
+		 * @class Buffer Buffer.h "GPU/Buffer.h"
+		 */
 		class Buffer {
 			public:
 				Buffer();

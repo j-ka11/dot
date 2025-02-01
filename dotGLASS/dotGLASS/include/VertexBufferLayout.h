@@ -73,6 +73,9 @@ namespace dotGLASS {
 		}
 	};
 
+	/**
+	 * @class VertexBufferLayout VertexBufferLayout.h "VertexBufferLayout.h"
+	 */
 	class VertexBufferLayout {
 		public:
 			VertexBufferLayout() {}
