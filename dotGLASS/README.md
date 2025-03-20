@@ -9,5 +9,11 @@
 1. Build the microsoft visual studio solution
     1. run `scripts/build.bat`
 2. Install git submodules
-    1. run `git submodule init`
-    2. run `git submodule update`
+    1. run
+       ```
+       git submodule init
+       git submodule update
+       ```
+    2. Alternatively, while cloning the repository, run
+
+       `git clone <url> --recurse-submodules`
