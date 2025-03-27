@@ -1,0 +1,38 @@
+\doxysection{Buffer.\+h}
+\hypertarget{_buffer_8h_source}{}\label{_buffer_8h_source}\index{include/GPU/Buffer.h@{include/GPU/Buffer.h}}
+\mbox{\hyperlink{_buffer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ GLEW\_STATIC}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}GL/glew.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_error_directives_8h}{ErrorDirectives.h}}"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vertex_8h}{Vertex.h}}"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedot_g_l_a_s_s}{dotGLASS}}\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedot_g_l_a_s_s_1_1_g_p_u}{GPU}}\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_a0537112b5a4c9e62a5664fb8e15b4647}{Buffer}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_a0537112b5a4c9e62a5664fb8e15b4647}{Buffer}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_a0537112b5a4c9e62a5664fb8e15b4647}{Buffer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{_lamp_8cpp_a25986ed96a435775e363f05540a2f9c4}{vertices}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_a0537112b5a4c9e62a5664fb8e15b4647}{Buffer}}(std::vector<Vertex>\ \mbox{\hyperlink{_lamp_8cpp_a25986ed96a435775e363f05540a2f9c4}{vertices}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_a0537112b5a4c9e62a5664fb8e15b4647}{Buffer}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}*\ \mbox{\hyperlink{_lamp_8cpp_a572f5d704a0dc85bc7d3d5f50b496ede}{indices}},\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ count);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_a0537112b5a4c9e62a5664fb8e15b4647}{Buffer}}(std::vector<unsigned\ int>\ \mbox{\hyperlink{_lamp_8cpp_a572f5d704a0dc85bc7d3d5f50b496ede}{indices}});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_a9e9e11af6c2f360f86f8734f1d8156a5}{\string~Buffer}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_a9767e1c3f1208c116c41d2e5f57dde96}{bind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_aea43ca523bda32b782b194fc43c1ad0e}{unBind}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_buffer_a3a4d72a685131b04efb75a5dd2186a9c}{bufferID}};}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \}}
+
+\end{DoxyCode}

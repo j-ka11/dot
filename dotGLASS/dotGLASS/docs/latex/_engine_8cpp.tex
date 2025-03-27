@@ -1,0 +1,87 @@
+\doxysection{src/\+Engine.cpp File Reference}
+\hypertarget{_engine_8cpp}{}\label{_engine_8cpp}\index{src/Engine.cpp@{src/Engine.cpp}}
+{\ttfamily \#include "{}Engine.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_engine_8cpp_aace1257b3e541ceede0ce84b540b0159}{key\+Callback}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, int key, int scancode, int action, int mode)
+\item 
+void \mbox{\hyperlink{_engine_8cpp_a4157f8758df55f5f3f3f402f9ae24e80}{mouse\+Callback}} (GLFWwindow \texorpdfstring{$\ast$}{*}window, double x\+Pos, double y\+Pos)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera}{dot\+GLASS\+::\+Camera}} \mbox{\hyperlink{_engine_8cpp_a32f1116e71d916b568d03d403dcdd569}{camera}} (glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f))
+\item 
+float \mbox{\hyperlink{_engine_8cpp_a4664c5d930c290e6f82141a070cbea46}{lastX}} = 400.\+0f
+\item 
+float \mbox{\hyperlink{_engine_8cpp_a9d5b8dfd025caf1c0ed043132515f587}{lastY}} = 400.\+0f
+\item 
+bool \mbox{\hyperlink{_engine_8cpp_a3a217745c5eebfcdb3e21cbc9bcdc07a}{keys}} \mbox{[}1024\mbox{]}
+\item 
+bool \mbox{\hyperlink{_engine_8cpp_ac21731ba101e28334c34543121caa841}{first\+Mouse}} = true
+\item 
+float \mbox{\hyperlink{_engine_8cpp_a518a497d888d805d5f368bbb91b54a6c}{last\+Frame}} = 0.\+0f
+\item 
+float \mbox{\hyperlink{_engine_8cpp_a1a61318ed6aa02b4ff346e7eb8f68891}{delta\+Time}} = 0.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_engine_8cpp_aace1257b3e541ceede0ce84b540b0159}\index{Engine.cpp@{Engine.cpp}!keyCallback@{keyCallback}}
+\index{keyCallback@{keyCallback}!Engine.cpp@{Engine.cpp}}
+\doxysubsubsection{\texorpdfstring{keyCallback()}{keyCallback()}}
+{\footnotesize\ttfamily \label{_engine_8cpp_aace1257b3e541ceede0ce84b540b0159} 
+void key\+Callback (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{int}]{key}{, }\item[{int}]{scancode}{, }\item[{int}]{action}{, }\item[{int}]{mode}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_engine_8cpp_a4157f8758df55f5f3f3f402f9ae24e80}\index{Engine.cpp@{Engine.cpp}!mouseCallback@{mouseCallback}}
+\index{mouseCallback@{mouseCallback}!Engine.cpp@{Engine.cpp}}
+\doxysubsubsection{\texorpdfstring{mouseCallback()}{mouseCallback()}}
+{\footnotesize\ttfamily \label{_engine_8cpp_a4157f8758df55f5f3f3f402f9ae24e80} 
+void mouse\+Callback (\begin{DoxyParamCaption}\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window}{, }\item[{double}]{x\+Pos}{, }\item[{double}]{y\+Pos}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_engine_8cpp_a32f1116e71d916b568d03d403dcdd569}\index{Engine.cpp@{Engine.cpp}!camera@{camera}}
+\index{camera@{camera}!Engine.cpp@{Engine.cpp}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily \label{_engine_8cpp_a32f1116e71d916b568d03d403dcdd569} 
+\mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera}{dot\+GLASS\+::\+Camera}} camera(glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f)) (\begin{DoxyParamCaption}\item[{glm\+::vec3(0.\+0f, 0.\+0f, 0.\+0f)}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{_engine_8cpp_a1a61318ed6aa02b4ff346e7eb8f68891}\index{Engine.cpp@{Engine.cpp}!deltaTime@{deltaTime}}
+\index{deltaTime@{deltaTime}!Engine.cpp@{Engine.cpp}}
+\doxysubsubsection{\texorpdfstring{deltaTime}{deltaTime}}
+{\footnotesize\ttfamily \label{_engine_8cpp_a1a61318ed6aa02b4ff346e7eb8f68891} 
+float delta\+Time = 0.\+0f}
+
+\Hypertarget{_engine_8cpp_ac21731ba101e28334c34543121caa841}\index{Engine.cpp@{Engine.cpp}!firstMouse@{firstMouse}}
+\index{firstMouse@{firstMouse}!Engine.cpp@{Engine.cpp}}
+\doxysubsubsection{\texorpdfstring{firstMouse}{firstMouse}}
+{\footnotesize\ttfamily \label{_engine_8cpp_ac21731ba101e28334c34543121caa841} 
+bool first\+Mouse = true}
+
+\Hypertarget{_engine_8cpp_a3a217745c5eebfcdb3e21cbc9bcdc07a}\index{Engine.cpp@{Engine.cpp}!keys@{keys}}
+\index{keys@{keys}!Engine.cpp@{Engine.cpp}}
+\doxysubsubsection{\texorpdfstring{keys}{keys}}
+{\footnotesize\ttfamily \label{_engine_8cpp_a3a217745c5eebfcdb3e21cbc9bcdc07a} 
+bool keys\mbox{[}1024\mbox{]}}
+
+\Hypertarget{_engine_8cpp_a518a497d888d805d5f368bbb91b54a6c}\index{Engine.cpp@{Engine.cpp}!lastFrame@{lastFrame}}
+\index{lastFrame@{lastFrame}!Engine.cpp@{Engine.cpp}}
+\doxysubsubsection{\texorpdfstring{lastFrame}{lastFrame}}
+{\footnotesize\ttfamily \label{_engine_8cpp_a518a497d888d805d5f368bbb91b54a6c} 
+float last\+Frame = 0.\+0f}
+
+\Hypertarget{_engine_8cpp_a4664c5d930c290e6f82141a070cbea46}\index{Engine.cpp@{Engine.cpp}!lastX@{lastX}}
+\index{lastX@{lastX}!Engine.cpp@{Engine.cpp}}
+\doxysubsubsection{\texorpdfstring{lastX}{lastX}}
+{\footnotesize\ttfamily \label{_engine_8cpp_a4664c5d930c290e6f82141a070cbea46} 
+float lastX = 400.\+0f}
+
+\Hypertarget{_engine_8cpp_a9d5b8dfd025caf1c0ed043132515f587}\index{Engine.cpp@{Engine.cpp}!lastY@{lastY}}
+\index{lastY@{lastY}!Engine.cpp@{Engine.cpp}}
+\doxysubsubsection{\texorpdfstring{lastY}{lastY}}
+{\footnotesize\ttfamily \label{_engine_8cpp_a9d5b8dfd025caf1c0ed043132515f587} 
+float lastY = 400.\+0f}
+

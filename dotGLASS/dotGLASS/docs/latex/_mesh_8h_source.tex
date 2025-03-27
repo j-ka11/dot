@@ -1,0 +1,57 @@
+\doxysection{Mesh.\+h}
+\hypertarget{_mesh_8h_source}{}\label{_mesh_8h_source}\index{include/Mesh.h@{include/Mesh.h}}
+\mbox{\hyperlink{_mesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ GLEW\_STATIC}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <GL/glew.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <assimp/types.h>}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_index_buffer_8h}{GPU/IndexBuffer.h}}"{}}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vertex_buffer_8h}{GPU/VertexBuffer.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_shader_8h}{Shader.h}}"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedot_g_l_a_s_s}{dotGLASS}}\ \{}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structdot_g_l_a_s_s_1_1_assimp_texture}{AssimpTexture}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ GLuint\ \mbox{\hyperlink{structdot_g_l_a_s_s_1_1_assimp_texture_a11680dc17e3cd0acee03f369686e3bb7}{id}};}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structdot_g_l_a_s_s_1_1_assimp_texture_abde351551799faa74bed6e1fd1de496c}{type}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ aiString\ \mbox{\hyperlink{structdot_g_l_a_s_s_1_1_assimp_texture_aa55870ad492abe8b1f6b680d3dcd7b19}{path}};}
+\DoxyCodeLine{00029\ \ \ \ \ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdot_g_l_a_s_s_1_1_mesh_a968ca2b4110f5af14b0b3d3bb04eee1e}{Mesh}}\ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_mesh_a968ca2b4110f5af14b0b3d3bb04eee1e}{Mesh}}(std::vector<Vertex>\ vertices,\ std::vector<unsigned\ int>\ indices,\ std::vector<AssimpTexture>\ textures);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_mesh_a22b90df156985f3974b13c3b5f9b8252}{bind}}();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_mesh_a65da2007278bb9325dbe7049273bfb6b}{draw}}(\mbox{\hyperlink{classdot_g_l_a_s_s_1_1_shader}{Shader}}\ meshShader);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_mesh_a370130b0156edd2734c8f03ae57ec985}{unBind}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_index_buffer}{GPU::IndexBuffer}}*\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_mesh_a82b8afc8ec97a47abb7fc8f62d24951c}{getIndexBuffer}}()\ \{\ \textcolor{keywordflow}{return}\ indexBuffer;\ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::vector<Vertex>\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_mesh_aeb3b8c03412334b10ae9be2e3d88b590}{getVertices}}()\ \{\ \textcolor{keywordflow}{return}\ vertices;\ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_index_buffer}{GPU::IndexBuffer}}*\ indexBuffer;}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<unsigned\ int>\ \mbox{\hyperlink{_lamp_8cpp_a572f5d704a0dc85bc7d3d5f50b496ede}{indices}};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_vertex_buffer_layout}{VertexBufferLayout}}\ layout;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<AssimpTexture>\ textures;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ vertexArrayID;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_vertex_buffer}{GPU::VertexBuffer}}*\ vertexBuffer;}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Vertex>\ \mbox{\hyperlink{_lamp_8cpp_a25986ed96a435775e363f05540a2f9c4}{vertices}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ setupMesh();}
+\DoxyCodeLine{00054\ \ \ \ \ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}

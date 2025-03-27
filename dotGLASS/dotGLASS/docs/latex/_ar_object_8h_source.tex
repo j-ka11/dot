@@ -1,0 +1,50 @@
+\doxysection{Ar\+Object.\+h}
+\hypertarget{_ar_object_8h_source}{}\label{_ar_object_8h_source}\index{include/Object/ArObject.h@{include/Object/ArObject.h}}
+\mbox{\hyperlink{_ar_object_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ GLEW\_STATIC}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}GL/glew.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <assimp/Importer.hpp>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <assimp/scene.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <assimp/postprocess.h>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_8h}{Mesh.h}}"{}}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedot_g_l_a_s_s}{dotGLASS}}\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedot_g_l_a_s_s_1_1_object}{Object}}\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_a7834ee16e7d84b92856a43ce0d49af6b}{ArObject}}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_a7834ee16e7d84b92856a43ce0d49af6b}{ArObject}}();}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_a18a1edca3c0283e389c59a1f2800156c}{\string~ArObject}}();}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_ac727fb7159dd5c9e60a82e0401798245}{bind}}();}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_af11da7ca37d3c48050d4b7ff771c6c34}{unBind}}();}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_abf46a009ab1d44378786a4a0d0861d41}{draw}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::vector<Mesh>\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_a9e85186ddb1e354b30582f7bdbc35357}{getMeshes}}()\ \{\ \textcolor{keywordflow}{return}\ meshes;\ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_a8cfc01ecf742418ac3cc4a438092ed89}{filepath}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_a0815bc76ac3a3c5742567c8417f3f5d4}{loadAsset}}();}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ directory;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<Mesh>\ meshes;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<AssimpTexture>\ texturesLoaded;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processNode(aiNode*\ node,\ \textcolor{keyword}{const}\ aiScene*\ scene);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_mesh}{Mesh}}\ processMesh(aiMesh*\ mesh,\ \textcolor{keyword}{const}\ aiScene*\ scene);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}

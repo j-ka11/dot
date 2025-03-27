@@ -1,0 +1,77 @@
+\doxysection{Camera.\+h}
+\hypertarget{_camera_8h_source}{}\label{_camera_8h_source}\index{include/Camera.h@{include/Camera.h}}
+\mbox{\hyperlink{_camera_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ GLEW\_STATIC}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}GL/glew.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}glm/glm.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}glm/gtc/matrix\_transform.hpp"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedot_g_l_a_s_s}{dotGLASS}}\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a91bd4c8b58c2635848a5631f9d505182}{CameraMovement}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a91bd4c8b58c2635848a5631f9d505182a5bc93c82172c2423878010b8283d7af5}{FORWARD}},}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a91bd4c8b58c2635848a5631f9d505182a8a1f92acedcf12e68938ffee2ca6c0c8}{BACKWARD}},}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a91bd4c8b58c2635848a5631f9d505182aaead565d4a14ef35f045430e06375c51}{LEFT}},}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a91bd4c8b58c2635848a5631f9d505182a7fd4d88a11c945be9682cc7e82c66604}{RIGHT}}}
+\DoxyCodeLine{00022\ \ \ \ \ \};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a14d4fe55f935678daa1710cfdf9b4175}{YAW}}\ =\ -\/90.0f;}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_ae09630a1e60e2a7b0e611919709f910d}{PITCH}}\ =\ 0.0f;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a66ebacd2c08b8643b1f36821e79d4062}{SPEED}}\ =\ 3.0f;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a02574561a6fa93d31a0edd327891f8b2}{SENSITIVITY}}\ =\ 0.25f;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a057dc45a270a86821af13b7d9fb97018}{ZOOM}}\ =\ 45.0f;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera_affb531023dc2b913edae5524b774f14e}{Camera}}\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera_affb531023dc2b913edae5524b774f14e}{Camera}}(glm::vec3\ position\ =\ glm::vec3(0.0f,\ 0.0f,\ 0.0f),\ glm::vec3\ up\ =\ glm::vec3(0.0f,\ 1.0f,\ 0.0f),\ \textcolor{keywordtype}{float}\ yaw\ =\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a14d4fe55f935678daa1710cfdf9b4175}{YAW}},\ \textcolor{keywordtype}{float}\ pitch\ =\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_ae09630a1e60e2a7b0e611919709f910d}{PITCH}})\ :}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ front(glm::vec3(0.0f,\ 0.0f,\ -\/1.0f)),\ movementSpeed(\mbox{\hyperlink{namespacedot_g_l_a_s_s_a66ebacd2c08b8643b1f36821e79d4062}{SPEED}}),\ mouseSensitivity(\mbox{\hyperlink{namespacedot_g_l_a_s_s_a02574561a6fa93d31a0edd327891f8b2}{SENSITIVITY}}),\ zoom(\mbox{\hyperlink{namespacedot_g_l_a_s_s_a057dc45a270a86821af13b7d9fb97018}{ZOOM}})\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>position\ =\ position;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>worldUp\ =\ up;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>yaw\ =\ yaw;}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>pitch\ =\ pitch;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>updateCameraVectors();}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera_a71da335ed53db7d4d53c11d66a4d0698}{Camera}}(\textcolor{keywordtype}{float}\ posX,\ \textcolor{keywordtype}{float}\ posY,\ \textcolor{keywordtype}{float}\ posZ,\ \textcolor{keywordtype}{float}\ upX,\ \textcolor{keywordtype}{float}\ upY,\ \textcolor{keywordtype}{float}\ upZ,\ \textcolor{keywordtype}{float}\ yaw,\ \textcolor{keywordtype}{float}\ pitch)\ :}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ front(glm::vec3(0.0f,\ 0.0f,\ -\/1.0f)),\ movementSpeed(\mbox{\hyperlink{namespacedot_g_l_a_s_s_a66ebacd2c08b8643b1f36821e79d4062}{SPEED}}),\ mouseSensitivity(\mbox{\hyperlink{namespacedot_g_l_a_s_s_a02574561a6fa93d31a0edd327891f8b2}{SENSITIVITY}}),\ zoom(\mbox{\hyperlink{namespacedot_g_l_a_s_s_a057dc45a270a86821af13b7d9fb97018}{ZOOM}})\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>position\ =\ glm::vec3(posX,\ posY,\ posZ);}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>worldUp\ =\ glm::vec3(upX,\ upY,\ upZ);}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>yaw\ =\ yaw;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>pitch\ =\ pitch;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ this-\/>updateCameraVectors();}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera_a4a8060fadd93bae7db3406ea4f416bb1}{processKeyboard}}(\mbox{\hyperlink{namespacedot_g_l_a_s_s_a91bd4c8b58c2635848a5631f9d505182}{CameraMovement}}\ direction,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_engine_8cpp_a1a61318ed6aa02b4ff346e7eb8f68891}{deltaTime}});}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera_a289b5884ca2e937905fede051486b2e3}{processMouseMovement}}(\textcolor{keywordtype}{float}\ xOffset,\ \textcolor{keywordtype}{float}\ yOffset,\ \textcolor{keywordtype}{bool}\ constrainPitch\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera_ad7251c536f4afc2e46fbd9b7141d6736}{processMouseScroll}}(\textcolor{keywordtype}{float}\ yOffset);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ glm::vec3\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera_aa4e5b94f366b0b65b08b98892b1652f8}{getPosition}}()\ \{\ \textcolor{keywordflow}{return}\ position;\ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ glm::mat4\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera_ab108a5d4a9842f042de784ca1c9ba19b}{getViewMatrix}}()\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::lookAt(this-\/>position,\ this-\/>position\ +\ this-\/>front,\ this-\/>up);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_camera_a203517ff10ad741f8aa1341176dae883}{getZoom}}()\ \{\ \textcolor{keywordflow}{return}\ zoom;\ \}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ front;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ mouseSensitivity;}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ movementSpeed;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ pitch;}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ position;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ right;}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ up;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ worldUp;}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ yaw;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ zoom;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ updateCameraVectors();}
+\DoxyCodeLine{00074\ \ \ \ \ \};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \}}
+
+\end{DoxyCode}

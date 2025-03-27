@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['vertexbuffer_0',['VertexBuffer',['../classdot_g_l_a_s_s_1_1_g_p_u_1_1_vertex_buffer.html#a7588b6444341cbd528ac89cbcfe0bedf',1,'dotGLASS::GPU::VertexBuffer::VertexBuffer(const void *vertices, unsigned int size)'],['../classdot_g_l_a_s_s_1_1_g_p_u_1_1_vertex_buffer.html#ac36e3bb08f65ec63f3f2d4fb97a6a6be',1,'dotGLASS::GPU::VertexBuffer::VertexBuffer(std::vector&lt; Vertex &gt; vertices)']]],
+  ['vertexbufferelement_1',['VertexBufferElement',['../structdot_g_l_a_s_s_1_1_vertex_buffer_element.html#ac22657274a3131ba4680f428d7f410eb',1,'dotGLASS::VertexBufferElement::VertexBufferElement()'],['../structdot_g_l_a_s_s_1_1_vertex_buffer_element.html#ad9d1a31c04a47c995d5b81af8e57d84a',1,'dotGLASS::VertexBufferElement::VertexBufferElement(ShaderDataType elementType, const std::string &amp;elementName, bool elementNormalized=false)']]],
+  ['vertexbufferlayout_2',['VertexBufferLayout',['../classdot_g_l_a_s_s_1_1_vertex_buffer_layout.html#a5c034c02180fca359bbc6115e7616a18',1,'dotGLASS::VertexBufferLayout::VertexBufferLayout()'],['../classdot_g_l_a_s_s_1_1_vertex_buffer_layout.html#a081549c676054ecb5c56edb9358b631f',1,'dotGLASS::VertexBufferLayout::VertexBufferLayout(const std::initializer_list&lt; VertexBufferElement &gt; &amp;elements)']]]
+];

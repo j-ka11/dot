@@ -1,0 +1,39 @@
+\doxysection{Lamp.\+h}
+\hypertarget{_lamp_8h_source}{}\label{_lamp_8h_source}\index{include/Object/Lamp.h@{include/Object/Lamp.h}}
+\mbox{\hyperlink{_lamp_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ GLEW\_STATIC}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}GL/glew.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_ar_object_8h}{Object/ArObject.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedot_g_l_a_s_s}{dotGLASS}}\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{namespace\ }Object\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_lamp_a4c705a2da09c08f86d1b3338559f7aa6}{Lamp}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_ar_object_a7834ee16e7d84b92856a43ce0d49af6b}{ArObject}}\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_lamp_a4c705a2da09c08f86d1b3338559f7aa6}{Lamp}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_lamp_abe1b21adadb64da82e8d291799405f26}{\string~Lamp}}();}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_lamp_a77a53e6d6427f7fbc4eff865d77417c4}{bind}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_lamp_a58d096a99acbe11a251c2ada8ed27f46}{unBind}}();}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_lamp_a3f67e3201142f3dca4953374ea25c945}{draw}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ glm::vec3\ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_object_1_1_lamp_a4d53d961af5c8feb3b23a526c75c3244}{getLightPosition}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ lightPosition;\ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_index_buffer}{GPU::IndexBuffer}}*\ indexBuffer;}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ lightPosition;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ vertexArrayID;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classdot_g_l_a_s_s_1_1_g_p_u_1_1_vertex_buffer}{GPU::VertexBuffer}}*\ vertexBuffer;}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}

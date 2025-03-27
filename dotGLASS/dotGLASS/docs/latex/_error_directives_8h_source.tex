@@ -1,0 +1,28 @@
+\doxysection{Error\+Directives.\+h}
+\hypertarget{_error_directives_8h_source}{}\label{_error_directives_8h_source}\index{include/ErrorDirectives.h@{include/ErrorDirectives.h}}
+\mbox{\hyperlink{_error_directives_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ GLEW\_STATIC}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}GL/glew.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacedot_g_l_a_s_s}{dotGLASS}}\ \{}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\ \ \ \ \#define\ ASSERT(x)\ if\ (!(x))\ \_\_debugbreak();}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\ \ \ \ \#define\ GLCall(x)\ glClearError();\(\backslash\)}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ x;\(\backslash\)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ ASSERT(glLogError(\#x,\ \_\_FILE\_\_,\ \_\_LINE\_\_))}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_a1590f412bc14ecb0c7fbbb86915ca14a}{glClearError}}();}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacedot_g_l_a_s_s_ab132e525759fdefd588ced02abee9701}{glLogError}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ function,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file,\ \textcolor{keywordtype}{int}\ line);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classdot_g_l_a_s_s_1_1_error_directives}{ErrorDirectives}}\ \{\};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}
