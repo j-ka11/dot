@@ -10,10 +10,10 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
             - name: Install Doxygen
-              run:
-                  sudo apt-add-repository universe
-                  sudo apt-get update
-                  sudo apt-get install doxygen
+              run: |
+                sudo apt-add-repository universe
+                sudo apt-get update
+                sudo apt-get install doxygen
             - name: Generate Documentation
               run: doxygen dotGLASS/dotGLASS/Doxyfile
             - name: Setup GitHub Pages
