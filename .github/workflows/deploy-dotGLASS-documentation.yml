@@ -15,7 +15,10 @@ jobs:
                 sudo apt-get update
                 sudo apt-get install doxygen
             - name: Generate Documentation
-              run: doxygen dotGLASS/dotGLASS/Doxyfile
+              run: |
+                cd dotGLASS/dotGLASS
+                doxygen Doxyfile
+                cd ../..
             - name: Setup GitHub Pages
               uses: actions/configure-pages@v5
             - name: Upload Artifact
